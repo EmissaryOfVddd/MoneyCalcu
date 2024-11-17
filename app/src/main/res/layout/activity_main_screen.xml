@@ -52,7 +52,7 @@
         <Button
             android:id="@+id/goToRecurringButton"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:text="Ежемесячные доходы" />
     </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
