@@ -19,7 +19,7 @@ private val TEST_LIST: List<Transaction> = List(100) { id: Int ->
         type = "Кредит"
     }
 
-    Transaction(id, id.toDouble(), tag, Type.ONE_TIME, type, Date(10000000000000))
+    Transaction(id, id.toDouble(), tag, Type.ONE_TIME, type, Date(8_000_000_000_000))
 }
 
 class TransactionViewModel : ViewModel() {

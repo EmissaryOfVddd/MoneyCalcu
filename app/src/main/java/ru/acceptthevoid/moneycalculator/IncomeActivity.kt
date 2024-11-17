@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import ru.acceptthevoid.moneycalculator.adapters.TransactionAdapter
-import ru.acceptthevoid.moneycalculator.common.showAddTransactionDialog
+import ru.acceptthevoid.moneycalculator.dialog.AddTransactionDialog
 import ru.acceptthevoid.moneycalculator.models.Tag
 import ru.acceptthevoid.moneycalculator.views.TransactionViewModel
 
@@ -31,7 +31,8 @@ class IncomeActivity : AppCompatActivity() {
         incomeRecyclerView.adapter = incomeAdapter
 
         findViewById<FloatingActionButton>(R.id.addIncomeButton).setOnClickListener {
-            showAddTransactionDialog(this, viewModel, Tag.INCOME)
+            val dialog = AddTransactionDialog(viewModel, Tag.INCOME)
+            dialog.show(supportFragmentManager, "AddTransactionDialog::INCOME")
         }
 
         viewModel.transactions.observe(this) { transactions ->

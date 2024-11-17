@@ -7,9 +7,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ru.acceptthevoid.moneycalculator.models.RecurringTransaction
-import java.text.SimpleDateFormat
-import java.time.format.DateTimeFormatter
-import java.util.*
 
 class RecTransactionsAdapter(private var transactions: List<RecurringTransaction>) :
     RecyclerView.Adapter<RecTransactionsAdapter.RecTransactionViewHolder>() {
@@ -36,8 +33,8 @@ class RecTransactionsAdapter(private var transactions: List<RecurringTransaction
         private val dateTextView: TextView = itemView.findViewById(android.R.id.text2)
 
         fun bind(transaction: RecurringTransaction) {
-            val dateFormat = SimpleDateFormat("dd/MM", Locale.getDefault())
             amountTextView.text = "${transaction.amount} ₽ (${transaction.type})"
+            dateTextView.text = "Дата транзакции: ${transaction.day}"
         }
     }
 }

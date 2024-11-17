@@ -9,8 +9,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import ru.acceptthevoid.moneycalculator.adapters.RecTransactionsAdapter
-import ru.acceptthevoid.moneycalculator.adapters.TransactionAdapter
-import ru.acceptthevoid.moneycalculator.common.showAddTransactionDialog
 import ru.acceptthevoid.moneycalculator.dialog.AddRecurringPaymentDialog
 import ru.acceptthevoid.moneycalculator.models.Tag
 import ru.acceptthevoid.moneycalculator.views.RecTransactionViewModel
