@@ -4,7 +4,7 @@ import java.time.MonthDay
 
 data class RecurringTransaction(
     val id: Int,
-    val amount: Int,
+    val amount: Double,
     val tag: Tag,
     val type: String,
     val monthDay: MonthDay,

@@ -11,6 +11,5 @@ class RecTransactionViewModel: ViewModel() {
 
     fun addTransaction(transaction: RecurringTransaction) {
         _recTransactions.value = _recTransactions.value?.plus(transaction)
-
     }
 }
