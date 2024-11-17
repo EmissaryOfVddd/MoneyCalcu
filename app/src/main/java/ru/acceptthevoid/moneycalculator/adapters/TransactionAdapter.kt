@@ -1,5 +1,6 @@
 package ru.acceptthevoid.moneycalculator.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,6 +25,7 @@ class TransactionAdapter(private var transactions: List<Transaction>) :
 
     override fun getItemCount(): Int = transactions.size
 
+    @SuppressLint("NotifyDataSetChanged")
     fun updateTransactions(newTransactions: List<Transaction>) {
         transactions = newTransactions
         notifyDataSetChanged()
