@@ -6,10 +6,14 @@ import android.os.Bundle
 import android.widget.EditText
 import android.widget.NumberPicker
 import androidx.fragment.app.DialogFragment
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 import ru.acceptthevoid.moneycalculator.R
+import ru.acceptthevoid.moneycalculator.data.MoneyDatabase
 import ru.acceptthevoid.moneycalculator.models.RecurringTransaction
 import ru.acceptthevoid.moneycalculator.models.Tag
 import ru.acceptthevoid.moneycalculator.views.RecTransactionViewModel
+import java.time.LocalDate
 
 class AddRecurringPaymentDialog(private val viewModel: RecTransactionViewModel) : DialogFragment() {
     private lateinit var amountEditText: EditText
@@ -46,9 +50,16 @@ class AddRecurringPaymentDialog(private val viewModel: RecTransactionViewModel) 
             return
         }
 
-        viewModel.addTransaction(RecurringTransaction(
-            0, amount, day, Tag.INCOME, type
-        ))
+        val trans = RecurringTransaction(
+            0, amount, day, Tag.INCOME, type, LocalDate.now(),
+        )
+
+        lifecycleScope.launch {
+            val db = MoneyDatabase.getDatabase(requireContext())
+            db.recTransactionDao().insert(trans)
+        }
+
+        viewModel.addTransaction(trans)
 
         dismiss()
     }

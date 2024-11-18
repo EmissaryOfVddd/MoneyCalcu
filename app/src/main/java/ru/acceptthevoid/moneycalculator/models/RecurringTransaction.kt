@@ -1,6 +1,6 @@
 package ru.acceptthevoid.moneycalculator.models
 
-import java.time.MonthDay
+import java.time.LocalDate
 
 data class RecurringTransaction(
     val id: Int,
@@ -8,4 +8,5 @@ data class RecurringTransaction(
     val day: Int,
     val tag: Tag,
     val type: String,
+    val dayOfCreation: LocalDate,
 )
